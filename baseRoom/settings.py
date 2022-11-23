@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-brqb9w-#)t3g0=-12aa@(-0wl2go!6%k2a*a))(-o&3m^b_qys
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.100', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -120,10 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+#     BASE_DIR / 'chatRoom/static'
+# ]
+
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'chatRoom/static'
+    BASE_DIR.joinpath("static"),
+    BASE_DIR.joinpath("chatRoom/static"),
 ]
 
 # Default primary key field type
