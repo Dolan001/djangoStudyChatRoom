@@ -1,1 +1,2 @@
 web: gunicorn baseRoom.wsgi
+web: gunicorn baseRoom.asgi
