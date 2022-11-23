@@ -58,7 +58,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'chatRoom/templates',
             BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,
@@ -74,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'baseRoom.wsgi.application'
-# ASGI_APPLICATION = 'baseRoom.asgi.application'
 
 
 # Database
@@ -143,7 +141,6 @@ STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath("static"),
-    BASE_DIR.joinpath("chatRoom/static"),
 ]
 
 # Default primary key field type

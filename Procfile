@@ -1,1 +1,1 @@
-web: gunicorn baseRoom.wsgi --log-file -
+web: gunicorn baseRoom.wsgi
