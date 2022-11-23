@@ -73,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'baseRoom.wsgi.application'
-ASGI_APPLICATION = 'baseRoom.asgi.application'
+# ASGI_APPLICATION = 'baseRoom.asgi.application'
 
 
 # Database
