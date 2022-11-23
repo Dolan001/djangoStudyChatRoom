@@ -62,16 +62,15 @@ def registerPage(request):
 
 
 def home(request):
-    # q = pass through url
-    q = request.GET.get('q') if request.GET.get('q') !=None else ""
-    #topic__name = query up
-    #icontains = case insesitive for url
+    q = request.GET.get('q') if request.GET.get('q') is not None else ""
+
     rooms = Room.objects.filter(
         Q(topic__name__icontains = q) |
         Q(name__icontains = q) |
         Q(description__icontains = q)
     )
-    topics = Topic.objects.all()[0:5]
+    topics = Topic.objects.all()
+    topic_limit = topics[0:5]
     room_count = rooms.count()
 
     room_messages = Message.objects.filter(
@@ -82,7 +81,8 @@ def home(request):
         'rooms': rooms,
         'topics': topics,
         'room_count':room_count,
-        'room_messages':room_messages
+        'room_messages':room_messages,
+        'topic_limit': topic_limit
         }
     return render(request,'home.html', context)
 
@@ -118,9 +118,11 @@ def room(request, pk):
         'room_messages':room_messages,
         'participants':participants
     }
-    room.participants.add(request.user)
-    return render(request, 'room.html', context)
-
+    if request.user.is_authenticated:
+        room.participants.add(request.user)
+        return render(request, 'room.html', context)
+    else:
+        return redirect('home')
 
 @login_required(login_url='login')
 def createRoom(request):
