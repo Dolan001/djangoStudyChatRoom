@@ -58,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            BASE_DIR / 'chatRoom/templates',
             BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,
@@ -141,6 +142,7 @@ STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath("static"),
+    BASE_DIR.joinpath("chatRoom/static"),
 ]
 
 # Default primary key field type
