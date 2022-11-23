@@ -62,4 +62,5 @@ sqlparse==0.4.3
 types-cryptography==3.3.23
 uritemplate==4.1.1
 urllib3==1.26.12
+whitenoise==6.2.0
 yarl==1.8.1
